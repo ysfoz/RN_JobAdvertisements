@@ -1,0 +1,5 @@
+#import <Foundation/Foundation.h>
+@interface PodsDummy_Pods_RN_JobAdvertisements_RN_JobAdvertisementsTests : NSObject
+@end
+@implementation PodsDummy_Pods_RN_JobAdvertisements_RN_JobAdvertisementsTests
+@end

@@ -1,0 +1,6 @@
+module Pods_RN_JobAdvertisements_RN_JobAdvertisementsTests {
+  umbrella header "Pods-RN_JobAdvertisements-RN_JobAdvertisementsTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
