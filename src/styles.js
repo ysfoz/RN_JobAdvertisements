@@ -44,3 +44,11 @@ export const jobsSlection = StyleSheet.create({
         fontWeight:'bold'
     }
 })
+
+export const jobs = StyleSheet.create({
+    modal:{
+        padding:10,
+        margin:10,
+        backgroundColor:'azure'
+    }
+})
