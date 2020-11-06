@@ -1,10 +1,10 @@
 import React from 'react'
-import { View, Text ,SafeAreaView, ScrollView } from 'react-native'
+import { View, Text ,SafeAreaView, ScrollView,Image } from 'react-native'
 import * as Animatable from 'react-native-animatable';
 
 
 import {intro} from '../styles'
-import {TopicItem} from '../components'
+import {TopicItem,Images} from '../components'
 
 const topics = [
     {
@@ -62,13 +62,14 @@ const topics = [
    
     return (
         <SafeAreaView style={{flex:1}}>
-        <View style={{flex:1}}>
+        <View style={{flex:1,backgroundColor:'#102027'}}>
         <Animatable.Text
-            style={intro.animation} 
-            animation="slideInLeft" 
-            iterationCount={50} 
-            direction="alternate">   ➢  ➢  ➢  ➢</Animatable.Text>
-
+                      style={[intro.animation,{fontSize:25,textAlign:'center',fontWeight:'bold',marginTop:10}]} 
+                      animation="zoomIn" 
+                      iterationDelay = {1000}
+                      iterationCount={3}
+                      duration = {1000}
+                      direction="alternate">Choose your Programing Language</Animatable.Text>
             <ScrollView
             horizontal
             style= {intro.scroll}
@@ -76,15 +77,23 @@ const topics = [
             >
                 
                 {
-                    topics.map((t)=> {
+                  topics.map((t)=> {
                     return <TopicItem key={t.id} item={t} onpress ={() => Press(t.name)}
-                                        />})
-                                        }
+                    />})
+                  }
                 
             </ScrollView>
+                  <Animatable.Text
+                      style={intro.animation} 
+                      animation="slideInLeft" 
+                     
+                      iterationCount={50} 
+                      direction="alternate">   ➢   ➢   ➢   ➢   ➢  </Animatable.Text>
             
         </View>
-        
+        <View>
+          <Images url = {require('../assets/developer.jpg')}/>
+        </View>
         </SafeAreaView>
     )
 }

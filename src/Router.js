@@ -14,7 +14,7 @@ const Router = () =>{
             }}>
                 <Stack.Screen name = 'Intro' component ={Introduction}/>
                 <Stack.Screen name = 'Jobs' component = {Jobs}/>
-                <Stack.Screen name ='favorits' component={SavedJobs}/>
+                <Stack.Screen name ='favorit' component={SavedJobs}/>
             </Stack.Navigator>
         </NavigationContainer>
     )

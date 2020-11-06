@@ -18,7 +18,7 @@ export const topicItem = StyleSheet.create({
 
 export const intro=StyleSheet.create({
     scroll:{
-       
+       marginTop:30
         
     },
     contentContainer:{
@@ -26,22 +26,24 @@ export const intro=StyleSheet.create({
         
     },
     animation:{
-        color:'red',
-        marginTop:50,
+        color:'crimson',
+        
+        fontSize:20
 
     }
 })
 
-export const jobsSlection = StyleSheet.create({
+export const jobsSelection = StyleSheet.create({
     container:{
         padding:10,
-        margin:10,
-        borderRadius:10,
-        borderWidth:1,
-        borderColor:'#efefef'
+        margin:3,
+    //    borderWidth:2,
+       backgroundColor:'#039be5',
+       borderRadius:10
     },
     text:{
-        fontWeight:'bold'
+        fontWeight:'bold',
+        color:'#ffffff'
     }
 })
 
@@ -49,6 +51,50 @@ export const jobs = StyleSheet.create({
     modal:{
         padding:10,
         margin:10,
-        backgroundColor:'azure'
+        backgroundColor:'azure',
+        borderRadius:20,
+        
+        
+        
+    },
+    modaltext:{
+        fontSize:15,
+        padding:5,
+        margin:4,   
+    },
+    container:{
+        backgroundColor:'#e0f7fa',
+        flex:1
+    },
+    button:{
+        backgroundColor:'crimson',
+        padding:10,
+        borderRadius:5,
+        position:'absolute',
+        right:5,
+        bottom:5,
+        height:100,
+        width:100,
+        borderRadius:50,
+        alignItems:'center',
+        justifyContent:'center'
+    },
+    buttontext:{
+        color:'white',
+        fontSize:15,
+        fontWeight:'bold'
+    }
+})
+
+export const images = StyleSheet.create({
+    image:{
+        width:Dimensions.get('screen').width ,
+        alignSelf:'center',
+        height:Dimensions.get('screen').height *0.73,
+        
+
+    },
+    container:{
+        
     }
 })
