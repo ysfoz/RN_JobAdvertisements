@@ -98,3 +98,10 @@ export const images = StyleSheet.create({
         
     }
 })
+
+export const savedjobs = StyleSheet.create({
+    container:{
+        backgroundColor:'#e0e0e0',
+        flex:1
+    }
+})

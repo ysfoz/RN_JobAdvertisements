@@ -9,8 +9,8 @@ const JobItem = (props) => {
         style = {jobsSelection.container}
         onPress = {props.onpress}
         >
-            <Text style ={jobsSelection.text}>{props.job.title}</Text>
-            <Text style ={jobsSelection.text}>{props.job.location}</Text>
+        <Text style ={jobsSelection.text}>{props.job.title}</Text>
+        <Text style ={jobsSelection.text}>{props.job.location}</Text> 
         </TouchableOpacity>
        
     )

@@ -14,6 +14,7 @@ const Jobs = (props) => {
     const [selectedJob,setSelectedJob] =useState('')
 
     const { selectedLang } = props.route.params;
+    
     const fetchData = async () => {
     const response = await Axios.get(
       `https://jobs.github.com/positions.json?search=${selectedLang.toLowerCase()}`
@@ -26,7 +27,7 @@ const Jobs = (props) => {
     setSelectedJob(job)
     }
 
-    const renderJobs = ({item}) => <JobItem job = {item} onpress = {()=>Press(item)}/>
+    const renderJobs = ({item}) => <JobItem job={item} onpress = {()=>Press(item)}/>
     
 
   useEffect(()=> {
@@ -38,7 +39,7 @@ const onJobSave = async() => {
   let savedJobList = await AsyncStorage.getItem('@SAVED_JOBS');
   savedJobList = savedJobList == null ? [] : JSON.parse(savedJobList)
 
-  const updatedJobList = [...savedJobList,selectedJob]
+  const updatedJobList = [ ...savedJobList,selectedJob]
 
   AsyncStorage.setItem('@SAVED_JOBS', JSON.stringify(updatedJobList))
 }
