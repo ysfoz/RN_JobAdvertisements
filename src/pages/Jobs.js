@@ -33,21 +33,21 @@ const Jobs = (props) => {
   useEffect(()=> {
     fetchData();
 },[]);
-  
-let updatedJobList =[]
-const onJobSave = async() => {
-  console.log(updatedJobList)
-  let savedJobList = await AsyncStorage.getItem('@SAVED_JOBS');
-  savedJobList = savedJobList == null ? [] : JSON.parse(savedJobList)
-  let index = updatedJobList.findIndex(item => item === selectedJob)
-  console.log(index)
-  if (index === -1){
-    updatedJobList= [...savedJobList,selectedJob]
-  }
-  AsyncStorage.setItem('@SAVED_JOBS', JSON.stringify(updatedJobList))
-  }
-  
 
+
+const onJobSave= async () =>{
+  let savedJobList = await AsyncStorage.getItem("@SAVED_JOBS")
+  savedJobList= savedJobList== null ? [] : JSON.parse(savedJobList)
+  let updatedJobList= [...savedJobList, selectedJob]
+  savedJobList.forEach((t) =>{
+    if (t.id===selectedJob.id ){
+      updatedJobList.pop()
+
+      }
+  })
+  await AsyncStorage.setItem("@SAVED_JOBS", JSON.stringify(updatedJobList))
+ 
+}
 
   return (
     <SafeAreaView style={{flex:1}}>

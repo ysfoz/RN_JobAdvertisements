@@ -6,15 +6,6 @@ import * as Animatable from 'react-native-animatable';
 import {JobItem} from '../components'
 import {savedjobs} from '../styles'
 
-// onst onJobSave = async() => {
-
-//   let savedJobList = await AsyncStorage.getItem('@SAVED_JOBS');
-//   savedJobList = savedJobList == null ? [] : JSON.parse(savedJobList)
-
-//   const updatedJobList = [ ...savedJobList,selectedJob]
-
-//   AsyncStorage.setItem('@SAVED_JOBS', JSON.stringify(updatedJobList))
-// }
 
 const SavedJobs = (props) => {
   const [jobList, setJobList] = useState([])
@@ -27,7 +18,6 @@ const SavedJobs = (props) => {
   
     const deleteItem =(params) =>{
         const newArray = [...jobList]
-        console.log(newArray)
         let index = newArray.findIndex(job => job === params )
         newArray.splice(index,1)
        
