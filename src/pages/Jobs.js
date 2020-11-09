@@ -34,15 +34,20 @@ const Jobs = (props) => {
     fetchData();
 },[]);
   
+let updatedJobList =[]
 const onJobSave = async() => {
-
+  console.log(updatedJobList)
   let savedJobList = await AsyncStorage.getItem('@SAVED_JOBS');
   savedJobList = savedJobList == null ? [] : JSON.parse(savedJobList)
-
-  const updatedJobList = [ ...savedJobList,selectedJob]
-
+  let index = updatedJobList.findIndex(item => item === selectedJob)
+  console.log(index)
+  if (index === -1){
+    updatedJobList= [...savedJobList,selectedJob]
+  }
   AsyncStorage.setItem('@SAVED_JOBS', JSON.stringify(updatedJobList))
-}
+  }
+  
+
 
   return (
     <SafeAreaView style={{flex:1}}>
@@ -60,7 +65,7 @@ const onJobSave = async() => {
         style={jobs.button}
         onPress= {()=> props.navigation.navigate('favorit')}
         >
-          <Text style = {jobs.buttontext}>Get Saved</Text>
+          <Text style = {jobs.buttontext}>Favorites</Text>
         </TouchableOpacity>
        
 
@@ -74,7 +79,7 @@ const onJobSave = async() => {
                 <Text style={jobs.modaltext}>Date:  {selectedJob.created_at}</Text>
                 <Text style={jobs.modaltext}>Webseite:  {selectedJob.company_url}</Text>
               </View>
-              <Button title = 'Save' onPress={onJobSave}/>
+              <Button title = 'Save' onPress={()=> {onJobSave() ; setModalFlag(false)}}/>
             </View>
         </Modal>
 

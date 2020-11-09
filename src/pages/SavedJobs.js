@@ -1,6 +1,7 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import React, { useState } from "react";
-import { View, Text, SafeAreaView, FlatList } from "react-native";
+import { View, Text, SafeAreaView, FlatList, TouchableOpacity } from "react-native";
+import * as Animatable from 'react-native-animatable';
 
 import {JobItem} from '../components'
 import {savedjobs} from '../styles'
@@ -29,7 +30,7 @@ const SavedJobs = (props) => {
         console.log(newArray)
         let index = newArray.findIndex(job => job === params )
         newArray.splice(index,1)
-        console.log("deleteItem ->  newArray",  newArray)
+       
         AsyncStorage.setItem('@SAVED_JOBS', JSON.stringify(newArray))
     }
 
@@ -42,6 +43,15 @@ const SavedJobs = (props) => {
         renderItem = {({item})=>  <JobItem job={item} remover ={() => deleteItem(item)}/>}
         
         />
+         <TouchableOpacity style={savedjobs.button}>
+          <Animatable.Text 
+          animation="flash" 
+          easing="ease-out" 
+          iterationCount="infinite" 
+          style={savedjobs.buttontext}
+          onPress = {() => AsyncStorage.setItem('@SAVED_JOBS', JSON.stringify([]))}
+          >Delete All</Animatable.Text>
+        </TouchableOpacity>
       </View>
     </SafeAreaView>
   );
